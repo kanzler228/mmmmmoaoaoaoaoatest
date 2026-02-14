@@ -170,10 +170,6 @@ void CUIInventoryWnd::Init()
 	AttachChild							(UIExitButton);
 	xml_init.Init3tButton				(uiXml, "exit_button", 0, UIExitButton);
 
-	AttachChild							(&UISleepWnd);
-	xml_init.InitStatic					(uiXml, "sleep_window", 0, &UISleepWnd);
-	UISleepWnd.Init();
-
 //Load sounds
 
 	XML_NODE* stored_root				= uiXml.GetLocalRoot		();
