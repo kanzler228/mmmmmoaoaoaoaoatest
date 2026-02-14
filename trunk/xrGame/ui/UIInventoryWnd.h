@@ -76,7 +76,7 @@ protected:
 	CUIFrameWindow				UIPersonalWnd;
 
 	CUI3tButton*				UIExitButton;
-
+	CUISleepWnd					UISleepWnd;
 	CUIStatic					UIStaticBottom;
 	CUIStatic					UIStaticTime;
 	CUIStatic					UIStaticTimeString;
