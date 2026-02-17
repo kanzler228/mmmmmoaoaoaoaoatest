@@ -9,6 +9,7 @@
 #include "ui/UIXmlInit.h"
 #include "ui/UIInventoryUtilities.h"
 #include "object_broker.h"
+#include "GameConstants.h"
 
 using namespace InventoryUtilities;
 
@@ -75,11 +76,12 @@ void CEncyclopediaArticle::load_shared	(LPCSTR)
 	if(ltx)
 	{
 		data()->image.SetShader(InventoryUtilities::GetEquipmentIconsShader());
-
-		float x			= float(pSettings->r_u32(ltx, "inv_grid_x") * INV_GRID_WIDTH);
-		float y			= float(pSettings->r_u32(ltx, "inv_grid_y") * INV_GRID_HEIGHT);
-		float width		= float(pSettings->r_u32(ltx, "inv_grid_width") * INV_GRID_WIDTH);
-		float height	= float(pSettings->r_u32(ltx, "inv_grid_height") * INV_GRID_HEIGHT);
+		// poka hui znaet 4e tut ne tak
+		// potom budu razbirat'sya
+		float x			= float(pSettings->r_u32(ltx, "inv_grid_x") * INV_GRID_WIDTH(GameConstants::GetHQIcons()));
+		float y			= float(pSettings->r_u32(ltx, "inv_grid_y") * INV_GRID_HEIGHT(GameConstants::GetHQIcons()));
+		float width		= float(pSettings->r_u32(ltx, "inv_grid_width") * INV_GRID_WIDTH(GameConstants::GetHQIcons()));
+		float height	= float(pSettings->r_u32(ltx, "inv_grid_height") * INV_GRID_HEIGHT(GameConstants::GetHQIcons()));
 
 		data()->image.GetUIStaticItem().SetOriginalRect(x, y, width, height);
 		data()->image.ClipperOn();

@@ -14,6 +14,7 @@
 #include "../PhysicsShellHolder.h"
 #include "UIWpnParams.h"
 #include "UIArtefactParams.h"
+#include "GameConstants.h"
 
 CUIItemInfo::CUIItemInfo()
 {
@@ -201,15 +202,15 @@ void CUIItemInfo::InitItem(CInventoryItem* pInvItem)
 		int iXPos							= pInvItem->GetXPos();
 		int iYPos							= pInvItem->GetYPos();
 
-		UIItemImage->GetUIStaticItem().SetOriginalRect(	float(iXPos*INV_GRID_WIDTH), float(iYPos*INV_GRID_HEIGHT),
-														float(iGridWidth*INV_GRID_WIDTH),	float(iGridHeight*INV_GRID_HEIGHT));
+		UIItemImage->GetUIStaticItem().SetOriginalRect(	float(iXPos*INV_GRID_WIDTH(GameConstants::GetHQIcons())), float(iYPos*INV_GRID_HEIGHT(GameConstants::GetHQIcons())),
+														float(iGridWidth*INV_GRID_WIDTH(GameConstants::GetHQIcons())),	float(iGridHeight*INV_GRID_HEIGHT(GameConstants::GetHQIcons())));
 		UIItemImage->TextureOn				();
 		UIItemImage->ClipperOn				();
 		UIItemImage->SetStretchTexture		(true);
 		Frect v_r							= {	0.0f, 
 												0.0f, 
-												float(iGridWidth*INV_GRID_WIDTH),	
-												float(iGridHeight*INV_GRID_HEIGHT)};
+												float(iGridWidth*INV_GRID_WIDTH(GameConstants::GetHQIcons())),
+												float(iGridHeight*INV_GRID_HEIGHT(GameConstants::GetHQIcons()))};
 		if(UI()->is_16_9_mode())
 			v_r.x2 /= 1.328f;
 

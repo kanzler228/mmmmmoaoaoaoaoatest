@@ -12,9 +12,8 @@
 #include "../actor.h"
 #include "../alife_registry_wrappers.h"
 #include "../UI.h"
-#include "../GameConstants.h"
 #include <dinput.h>
-
+#include "GameConstants.h"
 
 #define				TALK_XML				"talk.xml"
 #define				TRADE_CHARACTER_XML		"trade_character.xml"
@@ -178,13 +177,13 @@ void CUITalkDialogWnd::AddQuestion(LPCSTR str, LPCSTR value, int number, SPhrase
 		{
 			pBtnStatic->InitTexture(EQUIPMENT_ICONS);
 			pBtnStatic->GetUIStaticItem().SetShader(InventoryUtilities::GetEquipmentIconsShader());
-			float x			= float(pSettings->r_u32(phInfo.sIconName, "inv_grid_x") * INV_GRID_WIDTH);
-			float y			= float(pSettings->r_u32(phInfo.sIconName, "inv_grid_y") * INV_GRID_HEIGHT);
-			float width		= float(pSettings->r_u32(phInfo.sIconName, "inv_grid_width") * INV_GRID_WIDTH);
-			float height	= float(pSettings->r_u32(phInfo.sIconName, "inv_grid_height") * INV_GRID_HEIGHT);
+			float x			= float(pSettings->r_u32(phInfo.sIconName, "inv_grid_x") * INV_GRID_WIDTH(GameConstants::GetHQIcons()));
+			float y			= float(pSettings->r_u32(phInfo.sIconName, "inv_grid_y") * INV_GRID_HEIGHT(GameConstants::GetHQIcons()));
+			float width		= float(pSettings->r_u32(phInfo.sIconName, "inv_grid_width") * INV_GRID_WIDTH(GameConstants::GetHQIcons()));
+			float height	= float(pSettings->r_u32(phInfo.sIconName, "inv_grid_height") * INV_GRID_HEIGHT(GameConstants::GetHQIcons()));
 
 			pBtnStatic->GetUIStaticItem().SetOriginalRect(x, y, width, height);
-			icon_size.x *= width / INV_GRID_WIDTH;
+			icon_size.x *= width / INV_GRID_WIDTH(GameConstants::GetHQIcons());
 		}
 		pBtnStatic->SetWndPos(x_offset, 0.f);
 		x_offset += icon_size.x + itm->m_fOffsetAfterIcon;

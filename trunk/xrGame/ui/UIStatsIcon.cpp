@@ -2,6 +2,7 @@
 #include "UIStatsIcon.h"
 #include "UITextureMaster.h"
 #include "UIInventoryUtilities.h"
+#include "GameConstants.h"
 
 CUIStatsIcon::TEX_INFO		CUIStatsIcon::m_tex_info[MAX_DEF_TEX][2];
 
@@ -38,10 +39,10 @@ void CUIStatsIcon::InitTexInfo(){
 
 	m_tex_info[ARTEFACT][0].sh = GetEquipmentIconsShader();
 	m_tex_info[ARTEFACT][0].rect.set(
-		fXPos * INV_GRID_WIDTH, 
-		fYPos * INV_GRID_HEIGHT, 
-		fXPos * INV_GRID_WIDTH + fGridWidth * INV_GRID_WIDTH, 
-		fYPos * INV_GRID_HEIGHT + fGridHeight * INV_GRID_HEIGHT);
+		fXPos * INV_GRID_WIDTH(GameConstants::GetHQIcons()),
+		fYPos * INV_GRID_HEIGHT(GameConstants::GetHQIcons()),
+		fXPos * INV_GRID_WIDTH(GameConstants::GetHQIcons()) + fGridWidth * INV_GRID_WIDTH(GameConstants::GetHQIcons()),
+		fYPos * INV_GRID_HEIGHT(GameConstants::GetHQIcons()) + fGridHeight * INV_GRID_HEIGHT(GameConstants::GetHQIcons()));
 
 //	m_tex_info[ARTEFACT][0].rect.set( 200, 400, 50, 50);
 
